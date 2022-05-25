@@ -23,6 +23,7 @@
         <link href="{{ asset('backend/assets/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
 
         <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="{{ asset('backend/assets/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
 
         <!-- Vendor CSS-->
@@ -35,6 +36,7 @@
         <link href="{{ asset('backend/assets/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
 
         <!-- Main CSS-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="{{ asset('backend/assets/css/theme.css') }}" rel="stylesheet" media="all">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -107,8 +109,8 @@
         <script src="{{ asset('backend/assets/vendor/chartjs/Chart.bundle.min.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/select2/select2.min.js') }}">
         </script>
-
-        <!-- Main JS-->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+         <!-- Main JS-->
         <script src="{{ asset('backend/assets/js/main.js') }}"></script>
     </body>
 </html>

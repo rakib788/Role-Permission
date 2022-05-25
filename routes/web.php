@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::get('/', function () {
 });
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('roles', RoleController::class);
 });
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

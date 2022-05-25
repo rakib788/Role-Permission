@@ -13,6 +13,10 @@
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
                 <li>
+                    <a href="">
+                        <i class="fas fa-chart-bar"></i>Role</a>
+                </li>
+                <li>
                     <a href="{{ route('users') }}">
                         <i class="fas fa-chart-bar"></i>Users</a>
                 </li>
