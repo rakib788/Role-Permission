@@ -19,7 +19,10 @@
                                 <tr>
                                     <td class="text-center">{{ $loop->index+1 }}</td>
                                     <td class="text-center">{{ $role->name }}</td>
-                                    <td class="text-center">-</td>
+                                    <td class="text-center">
+                                        <a href="" class="badge btn btn-sm btn-primary">Edit</a>
+                                        <a href="" class="badge btn btn-sm btn-danger">Delete</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

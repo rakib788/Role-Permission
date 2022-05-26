@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
-        return view('roles.index',compact('roles'));
+        $users = User::all();
+        return view('users.index',compact('users'));
     }
 
     /**
@@ -28,9 +28,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
-        $permission_groups = User::getpermissionGroups();
-        return view('roles.create', compact('permissions', 'permission_groups'));
+        $roles =Role::all();
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -41,25 +40,22 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation data
-        $request->validate([
-            'name'=> 'required|max:100|unique:roles'
-        ],
-        [
-            'name.required' => 'Please give me a role name'
-        ]
-    );
-
-
-        // Process data
-         $role = Role::create(['name'=> $request->name]);
-        //  $role = DB::table('roles')->where('name',$request->name)->first();
-         $permissions = $request->input('permissions');
-         if (!empty($permissions)) {
-             $role ->syncPermissions($permissions);
-
-         }
-         return redirect()->back();
+        $request->validate(
+            [
+               'name' => 'required|max:50' ,
+               'email' => 'required|max:100|email|unique:users',
+               'password' => 'required|min:8|confirmed',
+            ]);
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->save();
+            if ($request->roles) {
+                $user->assignRole($request->roles);
+            }
+            session()->flash('success', 'User has been Created');
+            return redirect()->back();
     }
 
     /**
