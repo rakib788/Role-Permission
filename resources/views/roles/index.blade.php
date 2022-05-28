@@ -6,6 +6,12 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="table table--no-card m-b-30">
+                        <div class="row">
+                            <div class="col-6">Role Lists</div>
+                            <div class="col-6">
+                                <a href="{{ route('roles.create') }}" class="btn btn-sm float-right btn-primary">Create New Role </a>
+                            </div>
+                        </div>
                         <table class="table table-borderless table-striped">
                             <thead>
                                 <tr>
@@ -20,7 +26,7 @@
                                     <td class="text-center">{{ $loop->index+1 }}</td>
                                     <td class="text-center">{{ $role->name }}</td>
                                     <td class="text-center">
-                                        <a href="" class="badge btn btn-sm btn-primary">Edit</a>
+                                        <a href="{{ route('roles.edit', $role->id) }}" class="badge btn btn-sm btn-primary">Edit</a>
                                         <a href="" class="badge btn btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>

@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col-6">User Lists</div>
                                 <div class="col-6">
-                                    <a href="" class="btn btn-sm float-right btn-primary">Create New User </a>
+                                    <a href="{{ route('users.index') }}" class="btn btn-sm float-right btn-primary">All User </a>
                                 </div>
                             </div>
                         </div>

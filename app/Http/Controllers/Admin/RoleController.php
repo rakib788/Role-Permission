@@ -81,7 +81,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::findById($id);
+        $permissions = Permission::all();
+        $permission_groups = User::getpermissionGroups();
+        return view('roles.edit', compact( 'role','permissions', 'permission_groups'));
     }
 
     /**
@@ -93,7 +96,25 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         // Validation data
+         $request->validate([
+            'name'=> 'required|max:100'
+        ],
+        [
+            'name.required' => 'Please give me a role name'
+        ]
+    );
+
+
+        // Process data
+         $role = Role::findById($id);
+        //  $role = DB::table('roles')->where('name',$request->name)->first();
+         $permissions = $request->input('permissions');
+         if (!empty($permissions)) {
+             $role ->syncPermissions($permissions);
+
+         }
+         return redirect()->back();
     }
 
     /**

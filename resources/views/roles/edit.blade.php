@@ -7,7 +7,8 @@
                 <div class="col-lg-8">
                     <div class="table table--no-card m-b-30">
                         @include('partials.messages')
-                        <form action="{{ route('roles.store') }}" method="POST">
+                        <form action="{{ route('roles.update',$role->id) }}" method="POST">
+                            @method('PUT')
                             @csrf
                             <div class="row">
                                 <div class="col">
@@ -23,7 +24,7 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="">Role Name</label>
-                                                <input type="text" name="name" placeholder="Enter a Role name" class="form-control">
+                                                <input type="text" name="name" value="{{ $role->name }}" placeholder="Enter a Role name" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="name">Permissions</label>
@@ -37,11 +38,11 @@
                                                 @foreach ($permissions as $permission)
                                                 <div class="form-check" style="margin-left: 1.2rem; margin-top:5px;">
                                                     <label for="checkPermission{{ $permission->id }}" class="form-check-label">{{ $permission->name }}</label>
-                                                    <input type="checkbox" name="permissions[]" class="form-check-input form-group au-checkmark " id="checkPermission{{ $permission->id }}" value="{{ $permission->name }}">
+                                                    <input type="checkbox" name="permissions[]" {{ $role->hasPermissionTo($permission->name) ? 'checked' : '' }} class="form-check-input form-group au-checkmark " id="checkPermission{{ $permission->id }}" value="{{ $permission->name }}">
                                                 </div>
                                                 @endforeach
                                             </div>
-                                            <input type="submit" class="btn btn-primary float-left" name="submit" value="Add">
+                                            <button type="submit" name="submit"  class="btn btn-sm btn-primary">update</button>
                                         </div>
                                     </div>
                                 </div>

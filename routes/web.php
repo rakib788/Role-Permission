@@ -23,6 +23,10 @@ Route::get('/', function () {
     // }
     return view('welcome');
 });
+Route::group(['prefix'=>'admin'],function(){
+
+
+});
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
     Route::resource('roles', RoleController::class);

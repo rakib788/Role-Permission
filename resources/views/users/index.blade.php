@@ -35,7 +35,7 @@
 
                                             <td class="text-center">
                                                 @foreach ($user->roles as $role)
-                                                    <span class="badge badge mr-1">
+                                                    <span class="badge badge-info mr-1">
                                                         {{ $role->name }}
                                                     </span>
                                                 @endforeach

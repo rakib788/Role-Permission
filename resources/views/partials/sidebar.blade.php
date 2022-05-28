@@ -12,48 +12,23 @@
                     <a class="js-arrow" href="{{ route('dashboard') }}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>Roles & Permissions</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{ route('roles.index') }}">All Roles</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('roles.create') }}">Create Role</a>
-                        </li>
-
-                    </ul>
-                </li>
                 <li class="has-sub" >
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>Users</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list ">
+                        <i class="fas fa-users"></i>Users</a>
+                    <ul class=" navbar__sub-list js-sub-list ">
                         <li >
                             <a href="{{ route('users.index') }}">All Users</a>
                         </li>
                         <li>
-                            <a href="">Create User</a>
+                            <a href="{{ route('users.create') }}">Create User</a>
                         </li>
 
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#">
-                        <i class="fas fa-chart-bar"></i>Charts</a>
-                </li>
-                <li>
-                    <a href="table.html">
-                        <i class="fas fa-table"></i>Tables</a>
-                </li>
-                <li>
-                    <a href="form.html">
-                        <i class="far fa-check-square"></i>Forms</a>
-                </li>
-                <li>
-                    <a href="calendar.html">
-                        <i class="fas fa-calendar-alt"></i>Calendar</a>
+                    <a href="{{ route('roles.index') }}">
+                        <i class="fas fa-chart-bar"></i>Role</a>
                 </li>
                 <li>
                     <a href="map.html">
