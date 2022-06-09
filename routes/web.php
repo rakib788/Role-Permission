@@ -31,6 +31,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
     Route::resource('roles', RoleController::class);
     Route::resource('users',UserController::class);
+    Route::delete('/selected-users',[UserController::class, 'deleteCheckedUsers'])->name('user.deleteSelected');
 });
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

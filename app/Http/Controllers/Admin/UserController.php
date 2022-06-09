@@ -102,4 +102,10 @@ class UserController extends Controller
     {
         //
     }
+
+    public function deleteCheckedUsers(Request $request){
+        $ids = $request->ids;
+        User::whereIn('id',$ids)->delete();
+        return response()->json(['success'=>"Users Have been Deleted"]);
+    }
 }
